@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GradeCalc - Grading Calculator</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <div id="site-container">
+        <div class="spacer"></div>
+        <header id="main-header">
+            <img src="img/header-logo.png" />
+            <h2>Made for high-schoolers, by a high-schooler.</h2>
+        </header>
+        <nav id="nav-menu">
+            <a class="nav-link" href="index.html">Calculator</a>
+            <a class="nav-link" href="about.html">About Me</a>
+            <a class="nav-link" href="news.html">News</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="https://www.github.com/john-fiore/gradecalc" target="_blank">GitHub</a>
+        </nav>
+        <section class="content">
+            <article id="article-calculator">
+                <h1>Grade Calculator</h1>
+                <div class="input-container">
+                    <div class="input-group">
+                        <label for="earnedPts">Earned Points</label>
+                        <input type="text" id="earnedPts" class="calc-inp" />
+                    </div>
+                    <div class="input-group">
+                        <label for="totalPts">Total Points</label>
+                        <input type="text" id="totalPts" />
+                    </div>
+                </div>
+                <div class="small-spacer"></div>
+                <input type="button" onclick="calculateAndDisplay();" value="Calculate" id="calc-btn" />
+                <div class="actual-grade-section">
+                    <h1 id="letter-grade-text">A</h1>
+                    <h3 id="percent-grade-text">100.00%</h3>
+                </div>
+                <div class="small-spacer"></div>
+            </article>
+        </section>
+        <div class="small-spacer"></div>
+        <footer id="site-footer">
+            <p>Copyright © 2025-2025 John Fiore</p>
+            <p>All Rights Reserved.</p>
+            <p>Website v1.0</p>
+        </footer>
+    </div>
+
+    <script src="js/calculator.js"></script>
+</body>
+
+</html>
