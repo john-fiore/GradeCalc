@@ -1,8 +1,6 @@
 let earnedInp = document.getElementById('earnedPts');
 let totalInp = document.getElementById('totalPts');
 
-// If they vote on decimal rather than whole,
-// change parseInt to parseFloat
 let earnedNum = parseInt(earnedInp.value); // Fixed: added .value
 let totalNum = parseInt(totalInp.value);   // Fixed: added .value
 
@@ -16,6 +14,30 @@ const colors = [
     '#ffa600', // D
     '#ff0000' // F
 ];
+
+const superFMsgs = [
+    'you suck!',
+    'g3t gud k1d lawl',
+    '0.5 GPA',
+    'you tried(?)',
+    'didnt even think that was possible ngl.',
+    'refresh to reset'
+];
+
+function rng(min, max)
+{
+    return Math.random() * (max - min) + min;
+}
+
+function negativeEasterEgg()
+{
+    const rando = Math.floor(rng(0, 6));
+
+    letterTxt.style.color = colors[4];
+    letterTxt.innerHTML = 'SUPER F';
+
+    percntTxt.innerHTML = superFMsgs[rando];
+}
 
 function checkForErr()
 {
@@ -35,6 +57,12 @@ function checkForErr()
         alert("Earned Points cannot be greater than Total Points.");
         reset();
         return false; // Stop execution
+    }
+
+    if (parseInt(earnedVal) < 0 || parseInt(totalVal) < 0)
+    {
+        negativeEasterEgg();
+        return false;
     }
     
     return true; // No errors found
