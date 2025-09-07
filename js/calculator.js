@@ -14,11 +14,54 @@ const colors = [
     '#2e6e00', // B
     '#fffb00', // C
     '#ffa600', // D
-    '#ff0000'  // F
+    '#ff0000' // F
 ];
+
+function checkForErr()
+{
+    const earnedVal = earnedInp.value.trim();
+    const totalVal = totalInp.value.trim();
+
+    if (isNaN(earnedVal) || earnedVal === '' || isNaN(totalVal) || totalVal === '')
+    {
+        alert("Please input a number.");
+        reset();
+        return false; // Stop execution
+    }
+
+    // Parse to numbers for proper numerical comparison
+    if (parseInt(earnedVal) > parseInt(totalVal))
+    {
+        alert("Earned Points cannot be greater than Total Points.");
+        reset();
+        return false; // Stop execution
+    }
+    
+    return true; // No errors found
+}
+
+function reset()
+{
+    // Clear the input fields
+    earnedInp.value = '';
+    totalInp.value = '';
+    
+    earnedNum = 0;
+    totalNum = 0;
+
+    letterTxt.innerHTML = "A";
+    letterTxt.style.color = colors[0];
+    
+    percntTxt.innerHTML = "100.00%";
+}
 
 function calculateAndDisplay()
 {
+    if (!checkForErr())
+    {
+        return;
+    }
+
     // Get fresh values each time function is called
     earnedNum = parseInt(earnedInp.value);
     totalNum = parseInt(totalInp.value);
